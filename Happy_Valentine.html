@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Question 💕</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+  text-align: center;
+}
+
+.box {
+  background: rgba(255,255,255,0.2);
+  padding: 25px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 350px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+button {
+  padding: 12px 25px;
+  margin: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.yes {
+  background: #e60026;
+  color: white;
+}
+
+.no {
+  background: #333;
+  color: white;
+}
+
+.result {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.heart {
+  font-size: 90px;
+  animation: beat 1s infinite;
+}
+
+@keyframes beat {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+
+.love-text {
+  font-size: 22px;
+  margin-top: -10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h1>Do you love me? 💖</h1>
+
+  <div id="buttons">
+    <button class="yes" onclick="yesClick()">YES</button>
+    <button class="no" onclick="noClick()">NO</button>
+  </div>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+let noCount = 0;
+
+function yesClick() {
+  document.getElementById("buttons").style.display = "none";
+  document.getElementById("result").innerHTML = `
+    <div class="heart">❤️</div>
+    <div class="love-text">I love you forever 💕</div>
+  `;
+}
+
+function noClick() {
+  noCount++;
+  let lines = [
+    "🥺 Are you sure? My heart says YES 💗",
+    "💞 Please think again… love feels right",
+    "🥰 My world smiles when you say YES",
+    "❤️ Come on… say YES and hold my heart",
+    "💘 Destiny is clicking YES for us"
+  ];
+
+  document.getElementById("result").innerHTML =
+    lines[Math.min(noCount - 1, lines.length - 1)];
+}
+</script>
+
+</body>
+</html>
